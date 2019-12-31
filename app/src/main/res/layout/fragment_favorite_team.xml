@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".features.Favorites.FavoriteTeam.FavoritesTeamFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/empty_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/empty_box" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorites_team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="10dp"
+        tools:listitem="@layout/item_teams"
+        tools:targetApi="o" />
+</FrameLayout>
