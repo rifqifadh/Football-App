@@ -14,5 +14,15 @@ android:
 before_install:
   - chmod +x gradlew
 
+after_script:
+  - bash ./telegram_notification.sh
+
 script:
   - ./gradlew build
+
+notifications:
+  email:
+    recipients:
+    - rifqi.fadhlillah@gmail.com
+    on_success: never
+    on_failure: always
