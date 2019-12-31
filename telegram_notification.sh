@@ -26,9 +26,9 @@ send_msg () {
 send_msg "
 -------------------------------------
 Travis build *${build_status}!*
-\`Repository:  ${TRAVIS_REPO_SLUG}/app/release/app-release.apk\`
+\`Repository:  ${TRAVIS_REPO_SLUG}\`
 \`Branch:      ${TRAVIS_BRANCH}\`
-\`Files:       https://github.com/rifqifadh/Football-App/blob/master/app/release/app-release.apk\`
+\`Files:       <a href="https://github.com/rifqifadh/Football-App/raw/master/app/release/app-release.apk">Download Apk</a>\`
 *Commit Msg:*
 ${TRAVIS_COMMIT_MESSAGE}
 [Job Log here](${TRAVIS_JOB_WEB_URL})
