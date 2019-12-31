@@ -1,8 +1,6 @@
 package com.example.rifqi.footballapp.features.DetailLeague
 
-import com.example.rifqi.footballapp.model.DetailLeagueItem
 import com.example.rifqi.footballapp.model.DetailLeagueResponse
-import com.example.rifqi.footballapp.model.Team
 import com.example.rifqi.footballapp.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,23 +27,7 @@ class DetailLeaguePresenter(
                 }
 
                 override fun onFailure(call: Call<DetailLeagueResponse>, t: Throwable) {
-                    view.showErrorMessage("Request Time Out")
-                }
-            })
-    }
-
-    override fun getListTeams(leagues: String) {
-        ApiConfig().instance().getListTeams(leagues)
-            .enqueue(object : Callback<Team.Team> {
-                override fun onResponse(call: Call<Team.Team>, response: Response<Team.Team>) {
-                    val teams = response.body()?.teams
-                    if (response.isSuccessful) {
-                        teams?.let { view.setDataTeams(it) }
-                    }
-                }
-
-                override fun onFailure(call: Call<Team.Team>, t: Throwable) {
-
+                    t.printStackTrace()
                 }
             })
     }

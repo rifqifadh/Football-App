@@ -1,4 +1,4 @@
-package com.example.rifqi.footballapp.features.Favorites
+package com.example.rifqi.footballapp.features.Favorites.FavoriteMatch
 
 
 import android.os.Bundle
@@ -10,25 +10,29 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rifqi.footballapp.R
 import com.example.rifqi.footballapp.helper.database
 import com.example.rifqi.footballapp.model.Match
-import kotlinx.android.synthetic.main.fragment_favorites.*
-import org.jetbrains.anko.AnkoLogger
+import kotlinx.android.synthetic.main.fragment_favorites_match.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 
 /**
  * A simple [Fragment] subclass.
  */
-class FavoritesFragment : Fragment(), AnkoLogger {
+class FavoritesMatchFragment : Fragment() {
 
     private var favorites: MutableList<Match.MatchItem> = mutableListOf()
-    private val adapter by lazy { FavoritesAdapter(favorites, context!!) }
+    private val adapter by lazy {
+        FavoritesAdapter(
+            favorites,
+            context!!
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false)
+        return inflater.inflate(R.layout.fragment_favorites_match, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

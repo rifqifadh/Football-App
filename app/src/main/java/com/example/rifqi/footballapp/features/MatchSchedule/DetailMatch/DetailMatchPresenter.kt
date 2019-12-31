@@ -1,7 +1,7 @@
 package com.example.rifqi.footballapp.features.MatchSchedule.DetailMatch
 
+import com.example.rifqi.footballapp.features.Teams.model.Team
 import com.example.rifqi.footballapp.model.DetailMatch
-import com.example.rifqi.footballapp.model.Team
 import com.example.rifqi.footballapp.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback

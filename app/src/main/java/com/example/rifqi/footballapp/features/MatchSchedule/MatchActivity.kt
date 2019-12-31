@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.rifqi.footballapp.R
 import com.example.rifqi.footballapp.features.MatchSchedule.SearchMatch.SearchMatchActivity
+import com.example.rifqi.footballapp.model.LeagueItem
 import com.example.rifqi.footballapp.utils.Constants.Companion.LEAGUE_ID
 import kotlinx.android.synthetic.main.activity_match.*
 import org.jetbrains.anko.find
@@ -21,11 +22,11 @@ class MatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
 
-        val leagueId: String? = intent.getStringExtra(LEAGUE_ID)
+        val leagueItem = intent.getParcelableExtra<LeagueItem>(LEAGUE_ID)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Match Schedule"
+        supportActionBar?.title = leagueItem.name
 
-        viewPagerAdapter = MatchPagerAdapter(this, supportFragmentManager, leagueId)
+        viewPagerAdapter = MatchPagerAdapter(this, supportFragmentManager, leagueItem.id)
 
         viewPager = find(R.id.view_pager)
         viewPager.adapter = viewPagerAdapter

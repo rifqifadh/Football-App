@@ -8,10 +8,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.rifqi.footballapp.R
+import com.example.rifqi.footballapp.features.Teams.model.Team
 import com.example.rifqi.footballapp.helper.database
 import com.example.rifqi.footballapp.model.DetailMatch
 import com.example.rifqi.footballapp.model.Match
-import com.example.rifqi.footballapp.model.Team
 import com.example.rifqi.footballapp.utils.Constants.Companion.EVENT_ID
 import com.example.rifqi.footballapp.utils.DateTime
 import com.example.rifqi.footballapp.utils.Functions.replaceCharacter
@@ -26,7 +26,7 @@ import org.jetbrains.anko.db.select
 
 class DetailMatchActivity : AppCompatActivity(), DetailMatchImpl.View {
 
-    private lateinit var presenter: DetailMatchPresenter
+    private val presenter by lazy { DetailMatchPresenter(this) }
     private var matchItem: Match.MatchItem? = null
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
@@ -43,7 +43,6 @@ class DetailMatchActivity : AppCompatActivity(), DetailMatchImpl.View {
         val eventId = matchItem?.idEvent.toString()
         favoriteState()
 
-//        presenter = DetailMatchPresenter(this)
         eventId.let { presenter.getDetailMatch(it) }
     }
 

@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit
 
 class ApiConfig {
 
-    private val clien = OkHttpClient().newBuilder()
+    private val client = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            level =
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         })
         .readTimeout(20, TimeUnit.SECONDS)
         .writeTimeout(20, TimeUnit.SECONDS)
@@ -21,7 +22,7 @@ class ApiConfig {
     private fun retrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(clien)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

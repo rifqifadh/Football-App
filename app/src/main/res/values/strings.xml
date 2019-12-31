@@ -70,9 +70,35 @@
     <string name="add_to_favorite">Added to Favorite</string>
     <string name="remove_favorite">Remove from Favorite</string>
     <string name="teams">Teams</string>
+    <string name="team_name">Team Name</string>
+    <string name="total">Total</string>
+    <string name="win">Win</string>
+    <string name="draw">Draw</string>
+    <string name="lose">Lose</string>
+    <string name="play">Play</string>
+    <string name="team_description">Team Description</string>
+    <string name="stadium_description">Stadium Description</string>
+    <string name="website_social_media">Website and Social Media</string>
 
     <string-array name="fragment_match">
         <item>Last Match</item>
         <item>Next Match</item>
     </string-array>
+
+    <string-array name="title_fav_pager">
+        <item>Match</item>
+        <item>Team</item>
+    </string-array>
+
+    <string-array name="categories">
+        <item>Schedule</item>
+        <item>Teams</item>
+        <item>Standing</item>
+    </string-array>
+
+    <array name="categories_icon">
+        <item>@drawable/calendar</item>
+        <item>@drawable/stadium</item>
+        <item>@drawable/trophy</item>
+    </array>
 </resources>

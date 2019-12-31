@@ -1,6 +1,5 @@
 package com.example.rifqi.footballapp.features.MatchSchedule.SearchMatch
 
-import android.util.Log
 import com.example.rifqi.footballapp.model.Match
 import com.example.rifqi.footballapp.network.ApiConfig
 import retrofit2.Call

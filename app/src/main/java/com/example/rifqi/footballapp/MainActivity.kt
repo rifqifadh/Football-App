@@ -2,7 +2,7 @@ package com.example.rifqi.footballapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rifqi.footballapp.features.Favorites.FavoritesFragment
+import com.example.rifqi.footballapp.features.Favorites.FavoriteFragment
 import com.example.rifqi.footballapp.features.Leagues.LeaguesFragment
 import com.example.rifqi.footballapp.utils.Constants.Companion.TAG_FAVORITES
 import com.example.rifqi.footballapp.utils.Constants.Companion.TAG_LEAGUES
@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.favorites -> {
-                    FragmentTransaction.pushFragments(this, TAG_FAVORITES, FavoritesFragment())
+                    FragmentTransaction.pushFragments(this, TAG_FAVORITES,
+                        FavoriteFragment()
+                    )
                     return@setOnNavigationItemSelectedListener true
                 }
             }

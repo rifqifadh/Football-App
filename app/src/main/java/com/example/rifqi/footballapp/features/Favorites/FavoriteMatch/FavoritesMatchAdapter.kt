@@ -1,4 +1,4 @@
-package com.example.rifqi.footballapp.features.Favorites
+package com.example.rifqi.footballapp.features.Favorites.FavoriteMatch
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -21,8 +21,6 @@ class NextMatchPresenter(private var view: NextMatchImpl.View) :
                     if (response.isSuccessful) {
                         listMatch?.let { view.setDataList(it) }
                         view.hideLoading()
-                    } else {
-                        view.showErrorMessage("Error Request Data")
                     }
                 }
 

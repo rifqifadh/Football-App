@@ -20,13 +20,11 @@ class PrevMatchPresenter(private var view: PrevMatchImpl.View) : PrevMatchImpl.P
                     if (response.isSuccessful) {
                         listMatch?.let { view.setDataList(it) }
                         view.hideLoading()
-                    } else {
-                        view.showErrorMessage("Error Request Data")
                     }
                 }
 
                 override fun onFailure(call: Call<Match.MatchResponse>, t: Throwable) {
-                    view.showErrorMessage("Request Time Out")
+                    t.printStackTrace()
                 }
             })
     }

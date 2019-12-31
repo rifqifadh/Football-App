@@ -11,12 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".features.Teams.Search.SearchTeamActivity"></activity>
+        <activity
+            android:name=".features.DetailTeam.DetailTeamActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".features.Standings.StandingsActivity" />
+        <activity android:name=".features.Teams.TeamsActivity" />
         <activity
             android:name=".features.MatchSchedule.DetailMatch.DetailMatchActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".features.MatchSchedule.SearchMatch.SearchMatchActivity" />
         <activity android:name=".features.MatchSchedule.MatchActivity" />
-        <activity android:name=".features.DetailLeague.DetailLeagueActivity" />
+        <activity
+            android:name=".features.DetailLeague.DetailLeagueActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -30,10 +30,20 @@ class MyDbOpenHelper(context: Context) :
             "DATE_EVENT" to TEXT,
             "TIME_EVENT" to TEXT,
             "SPORT" to TEXT)
+
+        db?.createTable("TABLE_FAVORITE_TEAM", true,
+            "_ID" to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            "TEAM_ID" to TEXT + UNIQUE,
+            "TEAM_BADGE" to TEXT,
+            "TEAM_NAME" to TEXT,
+            "TEAM_STADIUM" to TEXT,
+            "TEAM_LEAGUE" to TEXT,
+            "SPORT" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.dropTable("TABLE_FAVORITE_MATCH", true)
+        db?.dropTable("TABLE_FAVORITE_TEAM", true)
     }
 }
 

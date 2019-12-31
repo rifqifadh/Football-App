@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.1"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_team_name_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            tools:text="@string/team_name" />
+
+        <TextView
+            android:id="@+id/tv_total_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/total" />
+
+        <TextView
+            android:id="@+id/tv_win_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            tools:text="@string/win" />
+
+        <TextView
+            android:id="@+id/tv_draw_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            tools:text="@string/draw" />
+
+        <TextView
+            android:id="@+id/tv_lose_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            tools:text="@string/lose" />
+
+        <TextView
+            android:id="@+id/tv_play_standings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            tools:text="@string/play" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorGreyLight" />
+</LinearLayout>

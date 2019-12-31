@@ -1,7 +1,6 @@
 package com.example.rifqi.footballapp.features.MatchSchedule.SearchMatch
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rifqi.footballapp.R
 import com.example.rifqi.footballapp.features.MatchSchedule.MatchAdapter
 import com.example.rifqi.footballapp.model.Match
+import com.example.rifqi.footballapp.utils.EspressoIdlingResource
 import kotlinx.android.synthetic.main.activity_search_match.*
 
 class SearchMatchActivity : AppCompatActivity(), SearchMatchImpl.View {
@@ -31,6 +31,9 @@ class SearchMatchActivity : AppCompatActivity(), SearchMatchImpl.View {
     }
 
     override fun setDataList(data: List<Match.MatchItem>) {
+        if (!EspressoIdlingResource.idlingResource.isIdleNow) {
+            EspressoIdlingResource.decrement()
+        }
         matchItems.clear()
         matchItems.addAll(data)
         adapter.notifyDataSetChanged()
@@ -56,13 +59,15 @@ class SearchMatchActivity : AppCompatActivity(), SearchMatchImpl.View {
         searchView.queryHint = getString(R.string.search)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
+                EspressoIdlingResource.increment()
                 presenter.searchMatch(newText?.replace(" ", "_").toString())
-                return false
+                return true
             }
 
             override fun onQueryTextSubmit(query: String?): Boolean {
+                EspressoIdlingResource.increment()
                 presenter.searchMatch(query?.replace(" ", "_").toString())
-                return false
+                return true
             }
         })
         menu.findItem(R.id.action_search).expandActionView()

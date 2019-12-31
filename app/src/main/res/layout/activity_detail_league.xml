@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".features.DetailLeague.DetailLeagueActivity">
 
     <include layout="@layout/loading" />
 
-    <ScrollView
-        android:id="@+id/container_detail"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_detail_league"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="240dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <LinearLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_league"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false">
 
             <ImageView
                 android:id="@+id/iv_logo"
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_height="match_parent"
                 android:background="@color/colorGreyLight" />
 
-
-            <TextView
-                android:id="@+id/tv_league"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_league"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="30sp" />
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/container_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="130dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_categories"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -120,49 +151,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/match_schedule"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/ib_check_schedule"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorGreyLight"
-                    android:gravity="center"
-                    android:text="@string/check_match_schedule"
-                    app:cornerRadius="10dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/teams"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_teams"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="@string/description"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="16sp" />
@@ -176,8 +164,6 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-    </ScrollView>
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

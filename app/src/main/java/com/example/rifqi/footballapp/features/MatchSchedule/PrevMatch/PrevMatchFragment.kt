@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rifqi.footballapp.R
 import com.example.rifqi.footballapp.features.MatchSchedule.MatchAdapter
 import com.example.rifqi.footballapp.model.Match
+import com.example.rifqi.footballapp.utils.EspressoIdlingResource
 import kotlinx.android.synthetic.main.fragment_prev.*
 import kotlinx.android.synthetic.main.loading.*
 import org.jetbrains.anko.support.v4.toast
@@ -54,12 +55,16 @@ class PrevMatchFragment : Fragment(), PrevMatchImpl.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        EspressoIdlingResource.increment()
         leagueId?.let { presenter.getListMatch(it) }
         rv_prev_match.layoutManager = LinearLayoutManager(context)
         rv_prev_match.adapter = adapter
     }
 
     override fun setDataList(data: List<Match.MatchItem>) {
+        if (!EspressoIdlingResource.idlingResource.isIdleNow) {
+            EspressoIdlingResource.decrement()
+        }
         matchItems.clear()
         matchItems.addAll(data)
         adapter.notifyDataSetChanged()
