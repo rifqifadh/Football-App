@@ -1,3 +1,3 @@
 # Football-App
 
-https://travis-ci.org/rifqifadh/Football-App.svg?branch=master
+[![Build Status](https://travis-ci.org/rifqifadh/Football-App.svg?branch=master)](https://travis-ci.org/rifqifadh/Football-App)
